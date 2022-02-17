@@ -14,6 +14,15 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // * Hoe zorgt ik ervoor dat wanneer ik een cijfer tegenkom die aan de conditie voldoet, ik dit ergens kan bijhouden?
 // Log het antwoord in de terminal.
 
+let teller = 0;
+for (let i = 0; i < grades.length ; i++) {
+    const currentGrade = grades[i];
+    if (currentGrade >= 8){
+        teller = teller +1;
+    }
+}
+console.log(teller);
+
 // ---- Verwachte uitkomst: 6
 
 
@@ -21,12 +30,33 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // Schrijf een functie genaamd cumLaude, die een array van cijfers verwacht (zoals grades) en het aantal Cum laude studenten teruggeeft. Gebruik hiervoor jouw antwoord van 1a.
 // Zorg ervoor dat jouw functie ook werkt als we een andere array met eindcijfers willen checken, zoals bijvoorbeeld: [6, 4, 5] of [8, 9, 4, 6, 10].
 // Log het antwoord in de terminal.
+function cumLaude(arrayCijfers) {
+    let teller = 0;
+    for (let i = 0; i < arrayCijfers.length ; i++) {
+        const currentGrade = arrayCijfers[i];
+        if (currentGrade >= 8){
+            teller = teller +1;
+            //console.log(teller)
+        }
+    }
+    return teller;
+}
+const eerste = cumLaude(grades);
+console.log(eerste);
+console.log(cumLaude(grades));
+
+const tweede = cumLaude([6,4,5]);
+console.log(tweede);
+console.log(cumLaude([6,4,5]));
+
+const derde = cumLaude([8,9,4,6,10]);
+console.log(derde);
+console.log(cumLaude([8,9,4,6,10]));
 
 // ---- Verwachte uitkomsten:
 // cumLaude(grades) geeft 6
 // cumLaude([6, 4, 5]) geeft 0
 // cumLaude([8, 9, 4, 6, 10]) geeft 3
-
 
 
 
@@ -40,6 +70,13 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // * Hoe zorgt ik ervoor dat ik alle waardes uit de array kan langslopen, ook als de array wel 100 entries zou bevatten?
 // Log het antwoord in de terminal.
 
+let sum = 0;
+for (let i = 0; i < grades.length ; i++) {
+    sum = sum + grades[i];
+    }
+const average = sum/grades.length;
+console.log(average);
+
 // ---- Verwachte uitkomst: 6.642857142857143
 
 
@@ -47,17 +84,59 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // Schrijf een functie genaamd averageGrade, die een array van cijfers verwacht (zoals grades) en het gemiddelde cijfer teruggeeft. Gebruik hiervoor jouw antwoord van 2a.
 // Zorg ervoor dat jouw functie ook werkt als we een andere array willen checken, zoals bijvoorbeeld: [6, 4, 5] of [8, 9, 4, 6, 10].
 // Log het antwoord in de terminal.
+function averageGrade(arrayCijfers) {
+    let sum = 0;
+    for (let i = 0; i < arrayCijfers.length ; i++) {
+        sum = sum + arrayCijfers[i];
+    }
+    const average = sum/arrayCijfers.length;
+    return  average;
+    //console.log(average);
+}
+
+const gemEen = averageGrade(grades);
+console.log(gemEen);
+
+const gemTwee = averageGrade([6,4,5]);
+console.log(gemTwee);
+
+const gemDrie = averageGrade([8,9,4,6,10]);
+console.log(gemDrie);
 
 // ---- Verwachte uitkomsten:
 // averageGrade(grades) geeft 6.642857142857143
-// averageGrade([6, 4, 5]) geeft xxxx
-// averageGrade([8, 9, 4, 6, 10]) geeft xxxx
+// averageGrade([6, 4, 5]) geeft 5
+// averageGrade([8, 9, 4, 6, 10]) geeft 7.4
+
+const gemEenC = Math.round(gemEen*100)/100;
+console.log(gemEenC);
+///Dit kan echt niet de bedoeling zijn
+const gemTweeC = Math.round(gemTwee*100)/100;
+console.log(gemTweeC);
+console.log(gemTwee.toFixed(2));
+
+//onderstaande geeft wel in twee decimalen, maar is strong geworden
+const gemDrieC = gemDrie.toFixed(2);
+console.log(gemDrieC);
+console.log(typeof gemDrieC);
+console.log(Number(gemDrieC));
+console.log(parseFloat(gemDrieC));
+// ik geef het op ik blijf op een decimaal terugkomen......
+//onderstaande geeft duidelijk het verschil tussen nummer en getal weer
+console.log(gemTweeC+gemDrieC);
+
+/*
+
+console.log(Number(gemDrie.toFixed(2)));
+console.log(Number(gemDrieC));
+console.log(Number(gemTweeC));
+
+*/
 
 
 /* 2c: Afronden op twee decimalen */
 // Zorg ervoor dat het gemiddelde cijfer dat wordt teruggegeven uit de functie netjes wordt afgerond op twee decimalen.
 // Tip: Google is your best friend!
-
 
 
 
@@ -70,6 +149,14 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // * Hoe zorgt ik ervoor dat wanneer ik een cijfer tegenkom die aan de conditie voldoet, ik dit ergens kan opslaan?
 // Log het antwoord in de terminal.
 
+let highestGrade = 0;
+    for (let i = 0; i < grades.length; i++) {
+    const currentGrade = grades[i];
+       if (currentGrade > highestGrade){
+           highestGrade = currentGrade;
+           //console.log(highestGrade)
+    }
+}
 // ---- Verwachte uitkomst: 9
 
 
@@ -77,6 +164,28 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // Schrijf een functie genaamd highestGrade, die een array van cijfers verwacht (zoals grades) en het hoogste cijfer teruggeeft. Gebruik hiervoor jouw antwoord van 3a.
 // Zorg ervoor dat jouw functie ook werkt als we een andere array willen checken, zoals bijvoorbeeld: [6, 4, 5] of [8, 9, 4, 6, 10].
 // Log het antwoord in de terminal.
+
+function highesGrade(arrayCijfers) {
+    let highestGrade = 0;
+    for (let i = 0; i < arrayCijfers.length; i++) {
+        const currentGrade = arrayCijfers[i];
+        if (currentGrade > highestGrade){
+            highestGrade = currentGrade;
+            //console.log(highestGrade)
+        }
+    }
+    return highestGrade;
+}
+
+const BonusEen = highesGrade(grades);
+console.log(BonusEen);
+
+const BonusTwee = highesGrade([6,4,5]);
+console.log(BonusTwee);
+
+const BonusDrie = highesGrade([8,9,4,6,10]);
+console.log(BonusDrie);
+
 
 // ---- Verwachte uitkomsten:
 // highestGrade(grades) geeft 9
